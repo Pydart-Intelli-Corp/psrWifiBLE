@@ -1,0 +1,98 @@
+Basic Commands:
+
+AT:------------------------------------------------------------------------------ Acknowledge command.
+IP:------------------------------------------------------------------------------ Prints the IP address of the device.
+RST:----------------------------------------------------------------------------- Restarts the device.
+Version:------------------------------------------------------------------------- Prints the firmware version.
+
+
+WiFi Commands:
+
+Scan:---------------------------------------------------------------------------- Scans for available WiFi networks and prints the SSIDs.
+Connect,ssid,password:----------------------------------------------------------- Connects to a WiFi network with the provided SSID and password.
+RSSI:---------------------------------------------------------------------------- Prints the RSSI value of the connected WiFi network.
+ConStatus:----------------------------------------------------------------------- Prints the connection status of the WiFi.
+SendHttpGet,url:----------------------------------------------------------------- Sends an HTTP GET request to the specified URL and prints the response.
+
+SD Card Commands:
+
+InitSD:-------------------------------------------------------------------------- Initializes the SD card.
+ListSD:-------------------------------------------------------------------------- Lists all files on the SD card.
+MOVtoLFS:------------------------------------------------------------------------ Moves a file from SD card to LittleFS. Format: MOVtoLFS filename.csv.
+MOVToSD:------------------------------------------------------------------------- Moves a file from LittleFS to SD card. Format: MOVToSD filename.csv.
+Write,SD,/HEL.csv,1/0,Start,End,[Data]------------------------------------------- write file to SD. For new file Use 1. For Append Use 0
+
+LittleFS Commands:
+
+InitLFS:------------------------------------------------------------------------- Initializes LittleFS.
+ListLFS:------------------------------------------------------------------------- Lists all files on LittleFS.
+FormatLFS:----------------------------------------------------------------------- Formats LittleFS.
+
+
+Read,LFS,/filename.csv,start,end:------------------------------------------------- Reads a file from LittleFS from start to end position. Replace filename with the actual file name.
+
+Read,SD,/filename.csv,start,end:-------------------------------------------------- Reads a file from SD card from start to end position. Replace filename with the actual file name.
+
+
+
+Close:--------------------------------------------------------------------------- Resets the current file position.
+
+BLE Commands:
+
+Start_ble:----------------------------------------------------------------------- Initializes BLE.
+BLE_Status:---------------------------------------------------------------------- Prints the connection status of the BLE device.
+BLE_Read:------------------------------------------------------------------------ Reads data from BLE.
+BLE_Send,part2,part3:------------------------------------------------------------ Sends data to BLE. Replace part2 and part3 with appropriate values.
+
+RATE Commands:
+
+RateF,Filename.csv,fat----------------------------------------------------------- Give corresponding min Rate based on fat
+RateC,Filename.csv,clr----------------------------------------------------------- Give corresponding min Rate based on clr
+RateFC,Filename.csv,fat,clr------------------------------------------------------ Give corresponding min Rate based on fat,clr
+RateFS,Filename.csv,fat,snf------------------------------------------------------ Give corresponding min Rate based on fat,snf
+
+
+
+
+
+//WIFI-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+//Connect,Pixel6,99999999
+//Connect,Poornasree2,psr$20252
+
+//SendHttpGet,http://lactosure.azurewebsites.net/api/PriceChartUpdation/DownloadRateChart?InputString=23|ECOSV|LE3.34|M000017|BUF
+//SendHttpGet,http://lactosure.azurewebsites.net/api/PriceChartUpdation/DownloadRateChart?InputString=22|ECOSV|LE3.34|M000017|COW
+//InitSD
+//ListSD
+//ListLFS
+//Read,LFS,/BUF.csv,1,300
+//Read,SD,/COW.csv,1,300
+
+//Write,SD,/HEL.csv,1,2,5,d1,d2,d3,2,3,4,5,3,6,7,8,9,9,9,0,0,9
+//RateF,/BUF.csv,02.00
+//RateCFS,/COW.csv,24.40,02.00,07.00
+//RateC,LFS/COW.csv,27.60
+//RateFC,/COW.csv,02.00,24.40     28.40,02.00,08.00,35.60
+//RateFC,/BUF.csv,02.00,28.40
+//RateFS,/BUF.csv,02.00,07.90
+//Open,SD,/COW.csv,0
+// 24.40,02.00,07.00,35.60
+// 09:35:12.021 -> 24.80,02.00,07.10,35.60
+// 09:35:12.021 -> 25.20,02.00,07.20,35.60
+// 09:35:12.021 -> 25.60,02.00,07.30,35.60
+// 09:35:12.021 -> 26.00,02.00,07.40,35.60
+// 09:35:12.021 -> 26.40,02.00,07.50,35.60
+// 09:35:12.021 -> 26.80,02.00,07.60,35.60
+// 09:35:12.021 -> 27.20,02.00,07.70,35.60
+// 09:35:12.021 -> 27.60,02.00,07.80,35.60
+// 09:35:12.021 -> 28.00,02.00,07.90,35.60
+// 09:35:12.021 -> 28.40,02.00,08.00,35.60
+// 09:35:12.021 -> 28.80,0
+
+
+
+
+
+
+
+
